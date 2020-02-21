@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
 })
 
 // GET a project by ID
-router.get("/:id", (req, res) => {
+router.get("/projects/:id", (req, res) => {
     projects.getProjectById(req.params.id)
         .first()
         .then(projects => {
