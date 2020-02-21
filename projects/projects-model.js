@@ -11,7 +11,10 @@ module.exports = {
     addTask,
     addContext,
 
-    getProjectByID
+    getResourceByID,
+    getProjectByID,
+    getTaskByID,
+    getContextByID,
 }
 
 // retrieve a list of all resources
@@ -66,6 +69,29 @@ function addContext(context) {
 }
 
 // get a project by ID
-function getProjectByID() {
-    
+function getProjectByID(id) {
+    return database("projects")
+        .first()
+        .where({ id })
+}
+
+// get a task by ID
+function getTaskByID(id) {
+    return database("tasks")
+        .first()
+        .where({ id })
+}
+
+// get a resource by ID
+function getResourceByID(id) {
+    return database("resources")
+        .first()
+        .where({ id })
+}
+
+// get a context by ID
+function getContextByID(id) {
+    return database("contexts")
+        .first()
+        .where({ id })
 }

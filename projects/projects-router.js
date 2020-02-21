@@ -17,8 +17,7 @@ router.get("/", (req, res) => {
 
 // GET a project by ID
 router.get("/projects/:id", (req, res) => {
-    projects.getProjectById(req.params.id)
-        .first()
+    projects.getProjectByID(req.params.id)
         .then(projects => {
             res.status(200).json(projects);
         })
