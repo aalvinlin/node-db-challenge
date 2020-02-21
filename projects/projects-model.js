@@ -15,6 +15,9 @@ module.exports = {
     getProjectByID,
     getTaskByID,
     getContextByID,
+
+    getTasksByProjectID,
+    getResourcesByProjectID
 }
 
 // retrieve a list of all resources
@@ -94,4 +97,16 @@ function getContextByID(id) {
     return database("contexts")
         .first()
         .where({ id })
+}
+
+// get all tasks with the same project ID
+function getTasksByProjectID(project_id) {
+    return database("tasks")
+        .where({ project_id })
+}
+
+// get all resources with the same project ID
+function getResourcesByProjectID(project_id) {
+    return database("resources")
+        .where({ project_id })
 }

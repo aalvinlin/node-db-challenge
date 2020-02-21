@@ -19,7 +19,11 @@ router.get("/", (req, res) => {
 router.get("/projects/:id", (req, res) => {
     projects.getProjectByID(req.params.id)
         .then(projects => {
-            res.status(200).json(projects);
+
+            let booleanText = projects.completed ? "true" : "false";
+            let projectDataReformatted = {...projects, completed: booleanText}
+
+            res.status(200).json(projectDataReformatted);
         })
         .catch(error => {
             res.status(500).json({message: "Could not get project #" + req.params.id + " from server."})
