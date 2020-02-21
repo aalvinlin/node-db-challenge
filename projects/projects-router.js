@@ -62,35 +62,53 @@ router.get("/contexts", (req, res) => {
 
 // POST a project to the database
 router.post("/project", (req, res) => {
-    projects.addProject()
-        .then(numberAdded => {
-            res.status(200).json(numberAdded);
-        })
-        .catch(error => {
-            res.status(500).json({message: "Could not add project to server."})
-        })
+
+    if (!req.body || !req.body.name)
+        { res.status(500).json({message: "Project name is required."}) }
+    else
+        {
+            projects.addProject()
+                .then(numberAdded => {
+                    res.status(200).json(numberAdded);
+                })
+                .catch(error => {
+                    res.status(500).json({message: "Could not add project to server."})
+                })
+        }
 })
 
 // POST a resource to the database
 router.post("/resource", (req, res) => {
-    projects.addResource()
-        .then(numberAdded => {
-            res.status(200).json(numberAdded);
-        })
-        .catch(error => {
-            res.status(500).json({message: "Could not add resource to server."})
-        })
+
+    if (!req.body || !req.body.name)
+        { res.status(500).json({message: "Resource name is required."}) }
+    else
+        {
+            projects.addResource()
+                .then(numberAdded => {
+                    res.status(200).json(numberAdded);
+                })
+                .catch(error => {
+                    res.status(500).json({message: "Could not add resource to server."})
+                })
+        }
 })
 
 // POST a task to the database
 router.post("/tasks", (req, res) => {
-    projects.addTask()
-        .then(numberAdded => {
-            res.status(200).json(numberAdded);
-        })
-        .catch(error => {
-            res.status(500).json({message: "Could not add task to server."})
-        })
+
+    if (!req.body || !req.body.description)
+        { res.status(500).json({message: "Task description is required."}) }
+    else
+        {
+            projects.addTask()
+                .then(numberAdded => {
+                    res.status(200).json(numberAdded);
+                })
+                .catch(error => {
+                    res.status(500).json({message: "Could not add task to server."})
+                })
+        }
 })
 
 // POST a context to the database
