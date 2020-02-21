@@ -72,7 +72,7 @@ router.post("/projects", (req, res) => {
                     res.status(200).json(numberAdded);
                 })
                 .catch(error => {
-                    res.status(500).json({message: "Could not add project to server.", error: error})
+                    res.status(500).json({message: "Could not add project to server."})
                 })
         }
 })

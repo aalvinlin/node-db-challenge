@@ -26,7 +26,10 @@ function getProjects() {
 
 // retrieve a list of all tasks
 function getTasks() {
-    return database("tasks");
+    return database("tasks")
+        .join("projects", "project_id", "=", "projects.id")
+        .select("tasks.id as task_id", "tasks.description as task_description",  "tasks.notes as task_notes", "tasks.completed as task_completed", "projects.id as project_id", "projects.name as project_name", "projects.description as project_description")
+        .orderBy("project_id")
 }
 
 // retrieve a list of all contexts
