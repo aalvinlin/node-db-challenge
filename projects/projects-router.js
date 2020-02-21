@@ -61,7 +61,7 @@ router.get("/contexts", (req, res) => {
 })
 
 // POST a project to the database
-router.post("/project", (req, res) => {
+router.post("/projects", (req, res) => {
 
     if (!req.body || !req.body.name)
         { res.status(500).json({message: "Project name is required."}) }
@@ -78,7 +78,7 @@ router.post("/project", (req, res) => {
 })
 
 // POST a resource to the database
-router.post("/resource", (req, res) => {
+router.post("/resources", (req, res) => {
 
     if (!req.body || !req.body.name)
         { res.status(500).json({message: "Resource name is required."}) }
