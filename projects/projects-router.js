@@ -67,12 +67,12 @@ router.post("/projects", (req, res) => {
         { res.status(500).json({message: "Project name is required."}) }
     else
         {
-            projects.addProject()
+            projects.addProject(req.body)
                 .then(numberAdded => {
                     res.status(200).json(numberAdded);
                 })
                 .catch(error => {
-                    res.status(500).json({message: "Could not add project to server."})
+                    res.status(500).json({message: "Could not add project to server.", error: error})
                 })
         }
 })
@@ -84,7 +84,7 @@ router.post("/resources", (req, res) => {
         { res.status(500).json({message: "Resource name is required."}) }
     else
         {
-            projects.addResource()
+            projects.addResource(req.body)
                 .then(numberAdded => {
                     res.status(200).json(numberAdded);
                 })
@@ -101,7 +101,7 @@ router.post("/tasks", (req, res) => {
         { res.status(500).json({message: "Task description is required."}) }
     else
         {
-            projects.addTask()
+            projects.addTask(req.body)
                 .then(numberAdded => {
                     res.status(200).json(numberAdded);
                 })
@@ -113,7 +113,7 @@ router.post("/tasks", (req, res) => {
 
 // POST a context to the database
 router.post("/contexts", (req, res) => {
-    projects.addContext()
+    projects.addContext(req.body)
         .then(numberAdded => {
             res.status(200).json(numberAdded);
         })

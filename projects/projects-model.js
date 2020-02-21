@@ -36,28 +36,28 @@ function getContexts() {
 
 // add a resource to the database
 function addResource(resource) {
-    return database("resource")
+    return database("resources")
         .insert(resource)
         // .then(ids => { return getResourceByID(ids[0]) })
 }
 
 // add a project to the database
 function addProject(project) {
-    return database("project")
+    return database("projects")
         .insert(project)
         // .then(ids => { return getProjectByID(ids[0]) })
 }
 
 // add a task to the database
 function addTask(task) {
-    return database("task")
+    return database("tasks")
         .insert(task)
         // .then(ids => { return getTaskByID(ids[0]) })
 }
 
 // add a context to the database
 function addContext(context) {
-    return database("context")
+    return database("contexts")
         .insert(context)
         // .then(ids => { return getContextByID(ids[0]) })
 }
